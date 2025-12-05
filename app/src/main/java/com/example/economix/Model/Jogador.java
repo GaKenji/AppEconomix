@@ -1,11 +1,13 @@
 package com.example.economix.Model;
+import com.example.economix.API.ProfissaoResponse;
+
 import java.util.ArrayList;
 
 public class Jogador{
 	private String nome;
 	private double saldo;
 	private final double valorInicial;
-	private Profissao profissao;
+	private ProfissaoResponse profissao;
 	private Casa casa;
 	private double gastos;
 	private ReservaEmergencia reservaEmergencia;
@@ -13,7 +15,7 @@ public class Jogador{
 	private ArrayList <EventoNegativo> evNegativo;
 	private ArrayList <EventoPositivo> evPositivo;
 	
-	public Jogador(String nome, Profissao profissao, Casa casa) {
+	public Jogador(String nome, ProfissaoResponse profissao, Casa casa) {
 		this.nome = nome;
 		this.saldo = profissao.getSalariomensal();
 		this.valorInicial = profissao.getSalariomensal();

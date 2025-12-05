@@ -1,15 +1,17 @@
 package com.example.economix.Model;
+import com.example.economix.API.ProfissaoResponse;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CriadorDePersonagem {
-	private ArrayList <Profissao> profissoes = new ArrayList <Profissao> ();
+	private ArrayList <ProfissaoResponse> profissoes = new ArrayList <ProfissaoResponse> ();
 	private ArrayList <Casa> casas = new ArrayList <Casa> ();
 	
 	public CriadorDePersonagem() {
-		Profissao atendente = new Profissao ("Atendente", 2000.00);
-		Profissao enfermeiro = new Profissao ("Enfermeiro", 6000.00);
-		Profissao programador = new Profissao ("Programador", 10000.00);
+		ProfissaoResponse atendente = new ProfissaoResponse("Atendente", 2000.00);
+		ProfissaoResponse enfermeiro = new ProfissaoResponse("Enfermeiro", 6000.00);
+		ProfissaoResponse programador = new ProfissaoResponse("Programador", 10000.00);
 		Casa kitnet = new Casa("Kitnet", 700.00);
 		Casa casa = new Casa("Casa", 1500.00);
 		Casa mansao = new Casa("Mansão", 4000.00);
@@ -33,7 +35,7 @@ public class CriadorDePersonagem {
                     " (R$ " + profissoes.get(i).getSalariomensal() + ")");
         }
         int escolhaProf = in.nextInt() - 1;
-        Profissao profEscolhida = profissoes.get(escolhaProf);
+        ProfissaoResponse profEscolhida = profissoes.get(escolhaProf);
 
         System.out.println("\nEscolha sua casa:");
         for (int i = 0; i < casas.size(); i++) {

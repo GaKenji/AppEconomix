@@ -1,11 +1,11 @@
-package com.example.economix.Model;
+package com.example.economix.API;
 
-public class Profissao {
+public class ProfissaoResponse {
 	
 	private String nome;
 	private double salarioMensal;
 	
-	public Profissao(String nome, double salarioMensal) {
+	public ProfissaoResponse(String nome, double salarioMensal) {
 		this.nome = nome;
 		this.salarioMensal = salarioMensal;
 	}
