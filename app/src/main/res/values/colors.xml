@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verdeClaro">#68C86C</color>
     <color name="verdeEscuro">#2E6635</color>
+    <color name="vermelho">#FD334F</color>
 
 </resources>

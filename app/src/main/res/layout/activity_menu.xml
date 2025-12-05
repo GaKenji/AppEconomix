@@ -31,6 +31,29 @@
         android:orientation="vertical"
         android:layout_marginTop="64dp" >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recorde Atual"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/federant"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/textViewRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recorde Atual R$"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/verdeEscuro"
+            android:fontFamily="@font/federant"
+            android:gravity="center"
+            android:layout_marginTop="16dp"/>
+
         <Button
             android:id="@+id/buttonJogar"
             android:layout_width="match_parent"
@@ -38,7 +61,7 @@
             android:text="$  Jogar  $"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/verdeEscuro"/>
@@ -53,8 +76,21 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="128dp"
+            android:layout_marginBottom="90dp"
             android:backgroundTint="@color/verdeEscuro"/>
+
+        <Button
+            android:id="@+id/buttonExcluirConta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Excluir Conta"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="128dp"
+            android:backgroundTint="@color/vermelho"/>
 
     </LinearLayout>
 

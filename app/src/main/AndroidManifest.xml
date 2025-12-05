@@ -18,7 +18,7 @@
             android:name=".Activitys.ActivityJogo"
             android:exported="false" />
         <activity
-            android:name=".Activitys.MainActivity"
+            android:name=".Activitys.TelaCadastro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

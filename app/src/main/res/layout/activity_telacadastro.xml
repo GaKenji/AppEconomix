@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.MainActivity">
+    tools:context=".Activitys.TelaCadastro">
 
     <View
         android:id="@+id/ViewDegradeCadastro"
@@ -39,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/ViewDegradeCadastro"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="50dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,37 +62,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/LinearEmailCadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/LinearNomeCadastro"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="E-mail: "
-            android:textStyle="bold"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/federant"/>
-
-        <EditText
-            android:id="@+id/EditEmailCadastro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:fontFamily="@font/federant"
-            android:inputType="textEmailAddress"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinearIdadeCadastro"
@@ -100,7 +70,7 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/LinearEmailCadastro"
+        app:layout_constraintTop_toBottomOf="@id/LinearNomeCadastro"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="30dp">
@@ -125,7 +95,23 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/buttonCadastro"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/LinearIdadeCadastro"
+        app:layout_constraintBottom_toTopOf="@id/degradeDownCadastro"
+        android:backgroundTint="@color/verdeEscuro"
+        android:text="Cadastrar"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/federant" />
+
     <View
+        android:id="@+id/degradeDownCadastro"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:background="@drawable/degrade3"
