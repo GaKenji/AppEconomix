@@ -16,7 +16,7 @@
             android:name=".Activitys.Menu"
             android:exported="false" />
         <activity
-            android:name=".Activitys.ActivityJogo"
+            android:name=".Activitys.CriadordePersonagem"
             android:exported="false" />
         <activity
             android:name=".Activitys.TelaCadastro"
