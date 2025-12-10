@@ -67,4 +67,109 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/verdeClaro"/>
 
+    <TextView
+        android:id="@+id/textViewEscolhaCasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sua casa!"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/verdeEscuro"
+        android:fontFamily="@font/federant"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupCasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SpinnerEscolhaProfissao"
+        android:layout_marginTop="32dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupCasa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupCasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewEscolhaCasa"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonKitnet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kitnet"
+            android:textColor="@color/verdeEscuro"
+            android:textStyle="bold"
+            android:fontFamily="@font/federant"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonCasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Casa"
+            android:textColor="@color/verdeEscuro"
+            android:textStyle="bold"
+            android:fontFamily="@font/federant"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonMansao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mansao"
+            android:textColor="@color/verdeEscuro"
+            android:textStyle="bold"
+            android:fontFamily="@font/federant"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/LinearNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupCasa"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/textViewNomePersonagem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nome: "
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/verdeEscuro"
+            android:fontFamily="@font/federant"/>
+
+        <EditText
+            android:id="@+id/editNomePersonagem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/verdeEscuro"
+            android:fontFamily="@font/federant"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonConfirmarCriacaoPersonagem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/verdeEscuro"
+        app:layout_constraintTop_toBottomOf="@id/LinearNome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="Confirmar Personagem"
+        android:textColor="@color/white"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
