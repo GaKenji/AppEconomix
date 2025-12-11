@@ -39,113 +39,92 @@ public class Jogador{
 		evPositivo.add(gratificacao);
 		evPositivo.add(ganhouDinheiro);
 	}
-	
-	public void getJogador() {
-		System.out.println("=========Jogador=========");
-		System.out.println("Nome: " + this.nome);
-		System.out.println("Profissão: " + this.profissao.getNome());
-		System.out.println("Salário: " + this.profissao.getSalariomensal());
-		System.out.println("Residência " + this.casa.getNome());
-		System.out.println("============================================="+"\n");
+
+	public String getProfissaoNome(){
+		return this.profissao.getNome();
 	}
-	
-	public void relatorioMensal() {
-		System.out.println("=========Relatório Mensal=========");
-		System.out.println("Nome: " + this.nome);
-		System.out.println("Patrimônio inicial: R$" + this.valorInicial);
-		System.out.println("gastos: R$" + this.gastos);
-		System.out.println("Proventos da reserva de emergência: R$" + proventosReservaEmergencia());
-		System.out.println("Proventos de ações: R$" + proventosAcoes());
-		System.out.println("Patrimônio final: R$" + this.saldo);
+	public double getProfissaoSalario(){
+		return this.profissao.getSalariomensal();
 	}
-	
+
+	public String getCasaNome(){
+		return this.casa.getNome();
+	}
+	public double getCasaAluguel(){
+		return this.casa.getAluguel();
+	}
 	public void receberSalsario() {
-		setSaldo(this.profissao.getSalariomensal());
+		adicionaSaldo(this.profissao.getSalariomensal());
 	}
-	
 	public void prejuizo() {
 		if(getSaldo() < 0.0) 
 			System.out.println("Você ficou endividado");
 		else
 			System.out.println("Você ficou com saldo positivo");
 	}
-	
 	public String getNome() {
 		return nome;
 	}
-	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 	public void setSaldo(double saldo) {
-		this.saldo = getSaldo()+saldo;
+		this.saldo = saldo;
 	}
-	
+	public void adicionaSaldo(double valor){
+		this.saldo += valor;
+	}
+	public void diminuiSaldo(double valor){
+		this.saldo -= valor;
+	}
 	public double getSaldo() {
 		return this.saldo;
 	}
-	
 	public void setGastos(double valor) {
 		this.gastos = gastos + valor;
 	}
-	
 	public double getGastos() {
 		return this.gastos;
 	}
-	
 	public void pagarAluguel() {
-		this.saldo = getSaldo() - this.casa.getAluguel();
+		diminuiSaldo(this.casa.getAluguel());
 		setGastos(this.casa.getAluguel());
-		System.out.println("Aluguel pago: " + this.casa.getAluguel());
 	}
-	
 	public void comprarComida(double valor) {
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
-		System.out.println("Compra do mêS: " + valor);
 	}
-	
 	public void contaDeLuz(double valor) {
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
-		System.out.println("Conta de luz: " + valor);
 	}
-	
 	public void contaDeAgua(double valor) {
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
-		System.out.println("Conta da água: " + valor);
 	}
-	
 	public void contaDoGas(double valor) {
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
-		System.out.println("Gasto com gás: " + valor);
 	}
 	
 	public void lazer(double valor) {
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
-		System.out.println("Gasto com lazer: " + valor);
 	}
 	
 	public void reservaDeEmergencia(double valor) {
 		this.reservaEmergencia.setQuantia(valor);
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
 	}
-	
 	public double proventosReservaEmergencia() {
 		return this.reservaEmergencia.calculaInvestimento();
 	}
-	
 	public void investeAcoes(double valor) {
 		this.acoes.setQuantia(valor);
-		this.saldo = getSaldo() - valor;
+		diminuiSaldo(valor);
 		setGastos(valor);
 	}
-	
 	public double proventosAcoes() {
 		return this.acoes.calculaInvestimento();
 	}

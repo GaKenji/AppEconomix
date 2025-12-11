@@ -5,17 +5,47 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verdeClaro"
+    android:background="@color/white"
     tools:context=".Activitys.Gameplay">
 
+    <View
+        android:id="@+id/viewTelaGameplay"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/verdeClaro"/>
+
     <TextView
-        android:id="@+id/textViewPersonagemGamePlay"
+        android:id="@+id/textViewTituloGameplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTelaGameplay"
+        android:gravity="center"
         android:textSize="20dp"
-        android:textColor="@color/black"/>
+        android:text="Olá, Fulano"
+        android:textColor="@color/verdeEscuro"
+        android:textStyle="bold"
+        android:fontFamily="@font/federant"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/textViewTextoGameplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloGameplay"
+        android:textSize="18dp"
+        android:text="Olá, Fulano"
+        android:textColor="@color/verdeEscuro"
+        android:textStyle="bold"
+        android:fontFamily="@font/federant"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

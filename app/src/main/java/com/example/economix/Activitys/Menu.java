@@ -1,6 +1,7 @@
 package com.example.economix.Activitys;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -70,12 +71,19 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void excluiConta(){
-        Usuario usuario = usuarioDAO.buscarUsuario();
-        if(usuario != null) {
-            usuarioDAO.deletarUsuario(usuario.getId());
-            Toast.makeText(this, "Conta excluída com sucesso!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, TelaCadastro.class));
-            finish();
-        }
+        new AlertDialog.Builder(this)
+                .setTitle("Excluir conta")
+                .setMessage("Quer mesmo excluir sua conta?")
+                .setPositiveButton("Sim, excluir", (dialog, which) -> {
+                    Usuario usuario = usuarioDAO.buscarUsuario();
+                    if(usuario != null) {
+                        usuarioDAO.deletarUsuario(usuario.getId());
+                        Toast.makeText(this, "Conta excluída com sucesso!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(this, TelaCadastro.class));
+                        finish();
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
     }
 }

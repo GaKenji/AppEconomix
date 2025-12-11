@@ -96,7 +96,6 @@ public class CriadordePersonagem extends AppCompatActivity implements View.OnCli
                 profissao = listaProfissoes.get(position);
                 String nome = profissao.getNome();
                 double salario = profissao.getSalariomensal();
-                Toast.makeText(CriadordePersonagem.this, "Você escolheu: " + nome + " (R$" + salario + ")", Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) { }
@@ -112,7 +111,7 @@ public class CriadordePersonagem extends AppCompatActivity implements View.OnCli
                 casa = new Casa("Casa", 1500.00);
             }
             else if(checkedId == R.id.radioButtonMansao){
-                casa = new Casa("Mansao", 4000.00);
+                casa = new Casa("Mansão", 4000.00);
             }
         });
     }
