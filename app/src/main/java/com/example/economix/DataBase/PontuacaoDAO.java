@@ -23,7 +23,8 @@ public class PontuacaoDAO implements IPontuacaoDAO{
     @SuppressLint("Range")
     public double buscarRecorde(int usuarioId) {
         double recorde = 0.0;
-        String sql = "SELECT recorde FROM pontuacao WHERE usuario_id = ? LIMIT 1";
+        String sql = "SELECT MAX(recorde) AS recorde FROM pontuacao WHERE usuario_id = ?";
+        //String sql = "SELECT MAX(recorde) FROM pontuacao WHERE usuario_id = ? LIMIT 1";
         Cursor cursor = leitura.rawQuery(sql, new String[]{String.valueOf(usuarioId)});
 
         if(cursor.moveToFirst()){

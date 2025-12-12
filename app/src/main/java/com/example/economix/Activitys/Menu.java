@@ -86,4 +86,15 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
                 .setNegativeButton("Cancelar", null)
                 .show();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Usuario usuario = usuarioDAO.buscarUsuario();
+
+        if (usuario != null) {
+            double recorde = pontuacaoDAO.buscarRecorde(usuario.getId());
+            textRecord.setText(String.format("%.2f R$", recorde));
+        }
+    }
 }
