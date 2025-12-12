@@ -16,11 +16,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.economix.API.ProfissaoResponse;
+import com.example.economix.DataBase.PontuacaoDAO;
+import com.example.economix.DataBase.UsuarioDAO;
 import com.example.economix.Model.Casa;
 import com.example.economix.Model.EventoNegativo;
 import com.example.economix.Model.EventoPositivo;
 import com.example.economix.Model.Jogador;
 import com.example.economix.R;
+import com.example.economix.Util.Usuario;
 
 import java.util.Random;
 
@@ -39,6 +42,9 @@ public class Gameplay extends AppCompatActivity implements View.OnClickListener 
     private double luz, agua, gas;
     private int controle = 0;
     private Random rand = new Random();
+    private PontuacaoDAO pontuacaoDAO;
+    private UsuarioDAO usuarioDAO;
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,19 +78,25 @@ public class Gameplay extends AppCompatActivity implements View.OnClickListener 
         btnConfimrar = findViewById(R.id.buttonConfirmaInvestimento);
         btnAvancaMes = findViewById(R.id.buttonAvancaMes);
 
+        pontuacaoDAO = new PontuacaoDAO(this);
+        usuarioDAO = new UsuarioDAO(this);
+        usuario = usuarioDAO.buscarUsuario();
+
         btnConfimrar.setVisibility(View.INVISIBLE);
         btnAvancaMes.setVisibility(View.INVISIBLE);
         despeza.setVisibility(View.INVISIBLE);
         tipoDespeza.setVisibility(View.INVISIBLE);
+
         apresentarJogador();
         virarMeses();
     }
     private void virarMeses(){
         btnAvancaMes.setVisibility(View.INVISIBLE);
-        if(mesAtual >= 12){
-            //Aqui vaontrar a activity de pontuação
+        if(mesAtual >= 3){
+            finalizarJogo();
+            return;
         }
-        if(mesAtual < 12){
+        if(mesAtual > 0){
             this.jogador.receberSalsario();
         }
         gerarContasFixas();
@@ -275,7 +287,6 @@ public class Gameplay extends AppCompatActivity implements View.OnClickListener 
         // retorna descrição, valor alterado e o tipo do evento
         return new String[]{descricao, valorStr, tipo};
     }
-
     private void mostrarDialogEvento(String descricao, String valor, String tipo){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String titulo = tipo.equals("positivo")
@@ -302,6 +313,29 @@ public class Gameplay extends AppCompatActivity implements View.OnClickListener 
                 .setPositiveButton("Continuar", (d, w) -> d.dismiss())
                 .show();
     }
+
+    private void finalizarJogo() {
+
+        double recordeAtual = pontuacaoDAO.buscarRecorde(this.usuario.getId());
+
+        // Se não existe registro no BD, insere
+        if (recordeAtual == 0) {
+            pontuacaoDAO.inserirRecorde(usuario.getId(), pontuacao);
+        } else {
+            // Se a nova pontuação for maior, atualiza
+            if (pontuacao > recordeAtual) {
+                pontuacaoDAO.atualizaRecorde(usuario.getId(), pontuacao);
+            }
+        }
+
+        // Agora abre a tela de pontuação final
+        Intent intent = new Intent(Gameplay.this, TelaPontuacao.class);
+        intent.putExtra("pontuacaoFinal", pontuacao);
+        intent.putExtra("recorde", Math.max(recordeAtual, pontuacao));
+        startActivity(intent);
+        finish(); // impede voltar pra gameplay
+    }
+
 
     @Override
     public void onClick(View v) {
