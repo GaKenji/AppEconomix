@@ -53,6 +53,12 @@ public class Jogador{
 	public double getCasaAluguel(){
 		return this.casa.getAluguel();
 	}
+	public ArrayList<EventoNegativo> getEvNegativo() {
+		return evNegativo;
+	}
+	public ArrayList<EventoPositivo> getEvPositivo() {
+		return evPositivo;
+	}
 	public void receberSalsario() {
 		adicionaSaldo(this.profissao.getSalariomensal());
 	}
@@ -81,7 +87,7 @@ public class Jogador{
 		return this.saldo;
 	}
 	public void setGastos(double valor) {
-		this.gastos = gastos + valor;
+		this.gastos =+ valor;
 	}
 	public double getGastos() {
 		return this.gastos;
@@ -131,15 +137,11 @@ public class Jogador{
 	public String getCasa() {
 		return this.casa.getNome();
 	}
-	
 	public void aplicarEventoNegativo(int indice){
 	    evNegativo.get(indice).aplicarEvento(indice, this);
 	    setGastos(evNegativo.get(indice).getValorPerda());
 	}
-	
 	public void aplicarEventoPositivo(int indice) {
 		evPositivo.get(indice).aplicarEvento(indice, this);
 	}
-	
-	
 }
